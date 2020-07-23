@@ -57,6 +57,10 @@ export default class Helper extends PureComponent {
     if (this.animationValue < -0.5 && value >= -0.5) {
       this.setState({ errored: false });
     }
+    
+    if (typeof this.animationValue === 'undefined' && value === -1) {
+      this.setState({ errored: true });
+    }
 
     this.animationValue = value;
   }
